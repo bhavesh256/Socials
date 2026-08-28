@@ -17,13 +17,12 @@
   </head>
   <body class="bg-zinc-950 text-neutral-100 font-bold">
 
-    <div class="mx-4 mt-4 md:mx-20 lg:mx-40 xl:mx-60 h-32 md:h-40 xl:h-44 rounded-xl bg-cover bg-center opacity-75 relative bg-zinc-800 animate-pulse overflow-hidden">
+    <div class="mx-4 mt-4 md:mx-20 lg:mx-40 xl:mx-60 h-32 md:h-40 xl:h-44 rounded-xl relative bg-zinc-800 animate-pulse overflow-hidden">
       <img 
         src="cover.webp" 
-        loading="lazy"
-        class="absolute inset-0 object-cover transition-opacity duration-500 opacity-0" 
-        onload="this.parentElement.classList.remove('animate-pulse', 'bg-slate-200'); this.classList.remove('opacity-0')"
-        alt="Product Shot"
+        class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 opacity-0" 
+        onload="this.parentElement.classList.remove('animate-pulse', 'bg-zinc-800'); this.classList.add('opacity-75')"
+        alt="Cover Banner"
       >
     </div>
 
