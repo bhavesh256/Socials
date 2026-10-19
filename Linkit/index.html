@@ -1,103 +1,284 @@
+
 <!doctype html>
 <html lang="en" class="scrollbar-none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Englebert&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="preload" as="image" href="/cover.webp">
-    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
-    <script>new Lenis({ autoRaf: true, autoToggle: true, anchors: true, syncTouch: true, allowNestedScroll: true, naiveDimensions: true, stopInertiaOnNavigate: true })</script>
+
+    <meta
+      name="description"
+      content="Bhavesh Upadhyay — Find me around the web."
+    />
+
     <title>Bhavesh Upadhyay</title>
 
-  </head>
-  <body class="bg-[#1e2230] text-neutral-100 font-bold min-h-screen">
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
 
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Englebert&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="/logo.png" type="image/png" />
+
+    <!-- Lenis smooth scrolling styles -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/lenis@1.3.26/dist/lenis.css"
+    />
+
+    <!-- Preload cover image -->
+    <link rel="preload" as="image" href="/cover.webp" />
+
+    <script
+      defer
+      src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"
+    ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof Lenis === "undefined") {
+          console.warn("Lenis failed to load.");
+          return;
+        }
+
+        const lenis = new Lenis({
+          autoRaf: true,
+          autoToggle: true,
+          anchors: true,
+          syncTouch: true,
+          allowNestedScroll: true,
+          naiveDimensions: true,
+          stopInertiaOnNavigate: true
+        });
+
+        // Keep the instance available for debugging.
+        window.lenis = lenis;
+      });
+    </script>
+  </head>
+
+  <body
+    class="bg-[#1e2230] text-neutral-100 font-bold min-h-screen"
+  >
     <!-- Cover -->
-    <div class="mx-4 mt-4 md:mx-20 lg:mx-40 xl:mx-60 h-32 md:h-40 xl:h-44 rounded-2xl relative bg-neutral-700 animate-pulse overflow-hidden ring-1 ring-white/10">
+    <div
+      class="mx-4 mt-4 md:mx-20 lg:mx-40 xl:mx-60 h-32 md:h-40 xl:h-44 rounded-2xl relative bg-neutral-700 animate-pulse overflow-hidden ring-1 ring-white/10"
+    >
       <img
-        src="cover.webp"
+        src="/cover.webp"
         class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 opacity-0"
         onload="this.parentElement.classList.remove('animate-pulse', 'bg-neutral-700'); this.classList.add('opacity-80')"
+        onerror="this.parentElement.classList.remove('animate-pulse'); this.classList.add('bg-neutral-800')"
         alt="Cover Banner"
-      >
+      />
     </div>
 
     <!-- Title -->
     <div class="mt-6 flex flex-col items-center px-4 text-center">
-      <header id="title" class="leading-tight text-4xl md:text-5xl xl:text-7xl">Bhavesh Upadhyay</header>
-      <!-- minimal accent divider -->
-      <div class="mt-4 flex items-center gap-3" aria-hidden="true">
-        <span class="mb-6 h-px w-24 bg-gradient-to-r from-transparent via-neutral-500 to-transparent" aria-hidden="true"></span>
+      <header
+        id="title"
+        class="leading-tight text-4xl md:text-5xl xl:text-7xl"
+      >
+        Bhavesh Upadhyay
+      </header>
+
+      <!-- Accent divider -->
+      <div
+        class="mt-4 flex items-center gap-3"
+        aria-hidden="true"
+      >
+        <span
+          class="mb-6 h-px w-24 bg-gradient-to-r from-transparent via-neutral-500 to-transparent"
+        ></span>
       </div>
-      <p id="quote" class="mt-3 text-sm md:text-base font-medium tracking-widest uppercase text-neutral-400">Find me around the web</p>
+
+      <p
+        id="quote"
+        class="mt-3 text-sm md:text-base font-medium tracking-widest uppercase text-neutral-400"
+      >
+        Find me around the web
+      </p>
     </div>
 
-    <main class="mx-auto mt-10 w-full max-w-4xl px-5 md:px-10 pb-6">
+    <!-- Social links -->
+    <main
+      class="mx-auto mt-10 w-full max-w-4xl px-5 md:px-10 pb-6"
+    >
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4" href="mailto:mail.bhavesh.in@gmail.com" target="_blank">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/mail.svg" alt="">
+        <!-- Email -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4"
+          href="mailto:mail.bhavesh.in@gmail.com"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/mail.svg"
+            alt=""
+          />
           <h3 class="text-lg md:text-xl">Mail</h3>
         </a>
 
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10  hover:border-neutral-300/40 px-4 py-3 md:py-4" href="https://www.linkedin.com/in/bhaveshupadhyay256/" target="_blank" rel="noopener">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/linkedin.svg" alt="">
+        <!-- LinkedIn -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4"
+          href="https://www.linkedin.com/in/bhaveshupadhyay256/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/linkedin.svg"
+            alt=""
+          />
           <h3 class="text-lg md:text-xl">LinkedIn</h3>
         </a>
 
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4" href="https://leetcode.com/u/bhavesh256/" target="_blank" rel="noopener">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/leetcode.svg" alt="">
-          <h3 class="text-lg md:text-xl">Leetcode</h3>
+        <!-- LeetCode -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4"
+          href="https://leetcode.com/u/bhavesh256/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/leetcode.svg"
+            alt=""
+          />
+          <h3 class="text-lg md:text-xl">LeetCode</h3>
         </a>
 
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4" href="https://leetcode.com/u/bhavesh256/" target="_blank" rel="noopener">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/codeforces.svg" alt="">
+        <!-- Codeforces -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4"
+          href="https://codeforces.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/codeforces.svg"
+            alt=""
+          />
           <h3 class="text-lg md:text-xl">Codeforces</h3>
         </a>
 
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4" href="https://github.com/bhavesh256/" target="_blank" rel="noopener">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/github.svg" alt="">
+        <!-- GitHub -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4"
+          href="https://github.com/bhavesh256/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/github.svg"
+            alt=""
+          />
           <h3 class="text-lg md:text-xl">GitHub</h3>
         </a>
 
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4" href="https://www.kaggle.com/bhavesh256" target="_blank" rel="noopener">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/kaggle.svg" alt="">
+        <!-- Kaggle -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4"
+          href="https://www.kaggle.com/bhavesh256"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/kaggle.svg"
+            alt=""
+          />
           <h3 class="text-lg md:text-xl">Kaggle</h3>
         </a>
 
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-indigo-300/40 px-4 py-3 md:py-4" href="https://huggingface.co/bhavesh256" target="_blank" rel="noopener">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/huggingface.svg" alt="">
+        <!-- Hugging Face -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-indigo-300/40 px-4 py-3 md:py-4"
+          href="https://huggingface.co/bhavesh256"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/huggingface.svg"
+            alt=""
+          />
           <h3 class="text-lg md:text-xl">Hugging Face</h3>
         </a>
 
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4" href="https://medium.com/@bhavesh256" target="_blank" rel="noopener">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/medium.svg" alt="">
+        <!-- Medium -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4"
+          href="https://medium.com/@bhavesh256"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/medium.svg"
+            alt=""
+          />
           <h3 class="text-lg md:text-xl">Medium</h3>
         </a>
 
-        <a class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4" href="https://x.com/neuralish" target="_blank" rel="noopener">
-          <img class="h-8 w-8 md:h-9 md:w-9 shrink-0" src="/twitter.svg" alt="">
+        <!-- X -->
+        <a
+          class="link-card flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-neutral-300/40 px-4 py-3 md:py-4"
+          href="https://x.com/neuralish"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="h-8 w-8 md:h-9 md:w-9 shrink-0"
+            src="/twitter.svg"
+            alt=""
+          />
           <h3 class="text-lg md:text-xl">X</h3>
         </a>
-
       </div>
     </main>
 
     <!-- Quote -->
-    <div class="mx-auto mb-12 mt-12 flex max-w-4xl flex-col items-center px-6 text-center">
-      <span class="mb-6 h-px w-24 bg-gradient-to-r from-transparent via-neutral-500 to-transparent" aria-hidden="true"></span>
-      <div class="flex items-start justify-center gap-1 md:gap-2 opacity-90">
-        <img src="/quote.svg" alt="" aria-hidden="true" class="-mt-1 h-4 shrink-0" />
-        <p id="quote" class="italic text-neutral-200 text-lg md:text-2xl xl:text-3xl">
+    <footer
+      class="mx-auto mb-12 mt-12 flex max-w-4xl flex-col items-center px-6 text-center"
+    >
+      <span
+        class="mb-6 h-px w-24 bg-gradient-to-r from-transparent via-neutral-500 to-transparent"
+        aria-hidden="true"
+      ></span>
+
+      <div
+        class="flex items-start justify-center gap-1 md:gap-2 opacity-90"
+      >
+        <img
+          src="/quote.svg"
+          alt=""
+          aria-hidden="true"
+          class="-mt-1 h-4 shrink-0"
+        />
+
+        <p
+          id="quote"
+          class="italic text-neutral-200 text-lg md:text-2xl xl:text-3xl"
+        >
           The more you roam around, the more you find out.
         </p>
       </div>
-    </div>
+    </footer>
   </body>
 </html>
